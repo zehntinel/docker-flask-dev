@@ -1,10 +1,10 @@
-FROM python:3.11.1
+FROM python:3.11.1-bullseye
 
 LABEL maintainer="Adrian Galicia <adgaben@gmail.com>"
 
-# Install dependencies
+# Install requirements
 
-RUN pip install pipenv  \
-    pip install gunicorn[gevent]
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 WORKDIR /app
