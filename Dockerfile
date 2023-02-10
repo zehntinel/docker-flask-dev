@@ -14,4 +14,8 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
+# Expose ports
+EXPOSE 80
+EXPOSE 443
+
 WORKDIR /app
