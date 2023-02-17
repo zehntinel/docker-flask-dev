@@ -18,4 +18,9 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 EXPOSE 80
 EXPOSE 443
 
+# Remove default configuration from Nginx
+RUN rm /etc/nginx/conf.d/default.conf
+# Copy the base uWSGI ini file to enable default dynamic uwsgi process number
+COPY uwsgi.ini /etc/uwsgi/
+
 WORKDIR /app
